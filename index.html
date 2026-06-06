@@ -10,7 +10,6 @@
     <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
     <link rel="manifest" href="./site.webmanifest" />
 
-    <!-- Open Graph — thumbnail preview pas share link di WA / TG / dll -->
     <meta property="og:title" content="Payment · Fanzx" />
     <meta property="og:description" content="Metode pembayaran untuk layanan fanzx — Dana, GoPay, OVO, dan QRIS." />
     <meta property="og:image" content="https://payment.fantzy.my.id/media/og-preview.jpg" />
@@ -65,17 +64,15 @@
         cursor: default;
       }
 
-      /* noise grain */
       body::after {
         content: '';
         position: fixed;
         inset: 0;
-        background-image: url("data:image/svg+xml,% viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%)' opacity='0.035'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,% viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' result='noise'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='noise' scale='80'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
         pointer-events: none;
         z-index: 999;
       }
 
-      /* ── ambient float ── */
       .amb {
         position: fixed;
         border-radius: 50%;
@@ -128,12 +125,10 @@
         padding: 72px 28px 100px;
       }
 
-      /* ── header ── */
       .hdr {
         margin-bottom: 56px;
       }
 
-      /* eyebrow */
       .hdr-eyebrow {
         display: flex;
         align-items: center;
@@ -144,7 +139,6 @@
         animation: fadeUp 0.55s ease 0.05s forwards;
       }
 
-      /* pulse dot */
       .hdr-dot {
         width: 5px;
         height: 5px;
@@ -175,7 +169,6 @@
         color: var(--muted);
       }
 
-      /* staggered title lines */
       .hdr-title {
         font-family: 'Cormorant Garamond', serif;
         font-size: clamp(48px, 9vw, 80px);
@@ -210,7 +203,6 @@
         }
       }
 
-      /* gold rule draw */
       .hdr-rule {
         margin-top: 24px;
         height: 1px;
@@ -238,7 +230,6 @@
         animation: fadeUp 0.5s ease 0.68s forwards;
       }
 
-      /* ── sections ── */
       .sec {
         margin-bottom: 40px;
       }
@@ -269,14 +260,12 @@
         transform: translateY(0);
       }
 
-      /* ── wallet list ── */
       .wlist {
         display: flex;
         flex-direction: column;
         gap: 10px;
       }
 
-      /* wallet card base */
       .wcard {
         background: var(--s1);
         border: 1px solid var(--b1);
@@ -293,7 +282,6 @@
           transform 0.22s,
           box-shadow 0.28s;
         user-select: none;
-        /* stagger from left — set by JS */
         opacity: 0;
         transform: translateX(-28px);
       }
@@ -316,7 +304,6 @@
         }
       }
 
-      /* pseudo layers */
       .wcard::before {
         content: '';
         position: absolute;
@@ -325,7 +312,6 @@
         opacity: 0;
         transition: opacity 0.3s;
       }
-      /* left accent bar */
       .wcard::after {
         content: '';
         position: absolute;
@@ -384,7 +370,6 @@
         transform: scaleY(1);
       }
 
-      /* shimmer sweep on hover */
       .wcard-shimmer {
         position: absolute;
         inset: 0;
@@ -404,7 +389,6 @@
         background-position: -20% 0;
       }
 
-      /* ripple canvas */
       .wcard-ripple {
         position: absolute;
         inset: 0;
@@ -413,7 +397,6 @@
         overflow: hidden;
       }
 
-      /* logo */
       .wlogo {
         width: 52px;
         height: 52px;
@@ -449,7 +432,6 @@
         flex-shrink: 0;
       }
 
-      /* text */
       .winfo {
         flex: 1;
         min-width: 0;
@@ -486,7 +468,6 @@
         flex-shrink: 0;
       }
 
-      /* copy btn */
       .cbtn {
         width: 34px;
         height: 34px;
@@ -523,7 +504,6 @@
         pointer-events: none;
       }
 
-      /* ── QRIS card — slide from right ── */
       .qcard {
         background: var(--s1);
         border: 1px solid var(--b1);
@@ -708,7 +688,6 @@
         letter-spacing: 0.12em;
       }
 
-      /* ── confirm box — scale fade ── */
       .confirm-box {
         background: var(--s1);
         border: 1px solid var(--b1);
@@ -769,7 +748,6 @@
         margin-bottom: 2px;
       }
 
-      /* ── footer ── */
       .ftr {
         margin-top: 72px;
         padding-top: 28px;
@@ -801,7 +779,6 @@
         color: var(--dim);
       }
 
-      /* ── toast ── */
       .toast {
         position: fixed;
         bottom: 28px;
@@ -838,7 +815,6 @@
         flex-shrink: 0;
       }
 
-      /* ── modal ── */
       .modal-wrap {
         position: fixed;
         inset: 0;
@@ -985,7 +961,6 @@
         border-color: color-mix(in srgb, var(--gold) 32%, transparent);
       }
 
-      /* shared fade-up */
       @keyframes fadeUp {
         from {
           opacity: 0;
@@ -997,550 +972,310 @@
         }
       }
 
-      /* ── Desktop 2-column layout ── */
-      @media (min-width: 900px) {
-        .wrap {
-          padding: 80px 56px 120px;
-        }
-
-        /* header wider */
-        .hdr {
-          margin-bottom: 64px;
-        }
-        .hdr-title {
-          font-size: clamp(72px, 7vw, 100px);
-        }
-        .hdr-sub {
-          max-width: 560px;
-          font-size: 14px;
-        }
-
-        /* main 2-col grid: left = wallet, right = qris+confirm */
-        .main-grid {
+      @media (min-width: 1024px) {
+        .wlist,
+        .qcard {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 28px;
-          align-items: start;
-        }
-
-        /* right column stacks qris + confirm */
-        .right-col {
-          display: flex;
-          flex-direction: column;
-          gap: 28px;
-        }
-        .right-col .sec {
-          margin-bottom: 0;
-        }
-
-        /* wallet cards slightly bigger */
-        .wprov { font-size: 16px; }
-        .wnum  { font-size: 15px; }
-        .wlogo { width: 58px; height: 58px; }
-        .wlogo-img, .wlogo-ph { width: 48px; height: 48px; }
-
-        /* qris thumb bigger */
-        .qthumb { width: 140px; height: 140px; }
-
-        /* confirm steps — 3-col row stays */
-        .confirm-box { padding: 26px 28px; }
-
-        /* footer */
-        .ftr { margin-top: 80px; }
-        .ftr-brand { font-size: 26px; }
-      }
-
-      /* ── Large desktop ── */
-      @media (min-width: 1200px) {
-        .wrap { padding: 96px 80px 140px; }
-        .hdr-title { font-size: clamp(88px, 6vw, 112px); }
-
-        .main-grid { gap: 36px; }
-
-        .qthumb { width: 160px; height: 160px; }
-
-        .wcard { padding: 22px 26px; }
-      }
-
-      /* ── Tablet ── */
-      @media (min-width: 600px) and (max-width: 899px) {
-        .wrap { padding: 64px 40px 100px; }
-
-        .qthumb { width: 130px; height: 130px; }
-
-        .confirm-box { padding: 22px 24px; }
-      }
-
-      /* ── Mobile ── */
-      @media (max-width: 599px) {
-        .wrap { padding: 52px 18px 80px; }
-
-        .qcard-row { flex-direction: column; }
-        .qthumb { width: 100%; height: 160px; }
-
-        .confirm-box {
-          flex-direction: column;
           gap: 16px;
         }
-        .cfm-step:not(:last-child)::after { display: none; }
-        .cfm-step:not(:first-child) {
-          padding-left: 0;
-          padding-top: 16px;
-          border-top: 1px solid var(--b1);
+        .qcard {
+          grid-column: 1 / -1;
         }
-
-        .ftr { flex-direction: column; gap: 8px; text-align: center; }
-        .cbtn { opacity: 1; transform: scale(1); }
       }
     </style>
   </head>
   <body>
     <div class="amb amb-a"></div>
     <div class="amb amb-b"></div>
+
     <div class="wrap">
-      <!-- HEADER -->
-      <header class="hdr">
+      <div class="hdr">
         <div class="hdr-eyebrow">
           <div class="hdr-dot"></div>
-          <span class="hdr-label">Payment · Fanzx</span>
+          <span class="hdr-label">Metode Pembayaran</span>
         </div>
+
         <h1 class="hdr-title">
-          <span class="hdr-title-line"
-            ><span class="hdr-title-line-inner">My</span></span
-          >
-          <span class="hdr-title-line"
-            ><span class="hdr-title-line-inner"><em>Payment</em></span></span
-          >
+          <span class="hdr-title-line">
+            <span class="hdr-title-line-inner">Pembayaran untuk</span>
+          </span>
+          <span class="hdr-title-line">
+            <span class="hdr-title-line-inner">
+              <em>Fantzy</em> Membership
+            </span>
+          </span>
         </h1>
+
         <div class="hdr-rule"></div>
+
         <p class="hdr-sub">
-          Pilih metode pembayaran di bawah. Setelah transfer, kirim bukti bayar
-          beserta detail pesanan ke WA atau Telegram.
+          Gunakan nomor di bawah untuk melakukan transfer. Hubungi kami jika ada pertanyaan atau
+          butuh bantuan.
         </p>
-      </header>
+      </div>
 
-      <!-- GRID WRAPPER -->
-      <div class="main-grid">
+      <section class="sec sec-payment">
+        <div class="sec-lbl">Dompet Digital</div>
 
-      <!-- E-WALLET -->
-      <div class="sec" id="sec-wallet">
-        <div class="sec-lbl">E-Wallet</div>
         <div class="wlist">
-          <!-- DANA -->
-          <div class="wcard dana" data-num="083893075288" data-prov="DANA">
+          <div class="wcard dana" data-number="089612345678">
             <div class="wcard-ripple"></div>
             <div class="wcard-shimmer"></div>
+
             <div class="wlogo">
-              <img class="wlogo-img" src="" alt="Dana" id="logo-dana" />
-              <span class="wlogo-ph" id="logoph-dana">D</span>
+              <img class="wlogo-img" alt="Dana" />
+              <div class="wlogo-ph">-</div>
             </div>
+
             <div class="winfo">
               <div class="wprov">Dana</div>
-              <div class="wnum">0838-9307-5288</div>
-              <div class="wname">a/n AAN SXXX RXXXXXX</div>
+              <div class="wnum">089612345678</div>
+              <div class="wname">a/n. Fanzx</div>
             </div>
-            <button class="cbtn" title="Salin nomor">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <rect x="9" y="9" width="13" height="13" rx="2" />
+
+            <button class="cbtn" title="Copy nomor">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path
-                  d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
-                />
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="9" y="9" width="6" height="6"></rect>
               </svg>
             </button>
           </div>
 
-          <!-- GOPAY -->
-          <div class="wcard gopay" data-num="08987768517" data-prov="GoPay">
+          <div class="wcard gopay" data-number="089687654321">
             <div class="wcard-ripple"></div>
             <div class="wcard-shimmer"></div>
+
             <div class="wlogo">
-              <img class="wlogo-img" src="" alt="GoPay" id="logo-gopay" />
-              <span class="wlogo-ph" id="logoph-gopay">G</span>
+              <img class="wlogo-img" alt="GoPay" />
+              <div class="wlogo-ph">-</div>
             </div>
+
             <div class="winfo">
               <div class="wprov">GoPay</div>
-              <div class="wnum">0898-7768-517</div>
-              <div class="wname">a/n AAN SXXX RXXXXXX</div>
+              <div class="wnum">089687654321</div>
+              <div class="wname">a/n. Fanzx</div>
             </div>
-            <button class="cbtn" title="Salin nomor">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <rect x="9" y="9" width="13" height="13" rx="2" />
+
+            <button class="cbtn" title="Copy nomor">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path
-                  d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
-                />
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="9" y="9" width="6" height="6"></rect>
               </svg>
             </button>
           </div>
 
-          <!-- OVO -->
           <div class="wcard ovo unavail">
+            <div class="wcard-ripple"></div>
             <div class="wcard-shimmer"></div>
+
             <div class="wlogo">
-              <img class="wlogo-img" src="" alt="OVO" id="logo-ovo" />
-              <span class="wlogo-ph" id="logoph-ovo">O</span>
+              <img class="wlogo-img" alt="OVO" />
+              <div class="wlogo-ph">-</div>
             </div>
+
             <div class="winfo">
               <div class="wprov">OVO</div>
-              <div class="wnum">— tidak tersedia</div>
+              <div class="wnum">••••••••••••</div>
+              <div class="wname">Tidak tersedia</div>
             </div>
-            <span class="unavail-badge">Unavailable</span>
+
+            <span class="unavail-badge">unavailable</span>
           </div>
         </div>
-      </div><!-- /sec-wallet -->
+      </section>
 
-      <!-- RIGHT COLUMN (desktop) -->
-      <div class="right-col">
+      <section class="sec sec-qr">
+        <div class="sec-lbl">Kode QR</div>
 
-      <!-- QRIS -->
-      <div class="sec" id="sec-qris">
-        <div class="sec-lbl">QRIS All Payment</div>
         <div class="qcard">
           <div class="qcard-top"></div>
           <div class="qcard-body">
             <div class="qcard-row">
-              <div class="qthumb" onclick="openModal()" title="Lihat QRIS">
-                <div class="qthumb-ph" id="qthumbPh">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                  >
-                    <rect x="3" y="3" width="7" height="7" rx="1" />
-                    <rect x="14" y="3" width="7" height="7" rx="1" />
-                    <rect x="3" y="14" width="7" height="7" rx="1" />
-                    <rect
-                      x="5"
-                      y="5"
-                      width="3"
-                      height="3"
-                      fill="currentColor"
-                      stroke="none"
-                    />
-                    <rect
-                      x="16"
-                      y="5"
-                      width="3"
-                      height="3"
-                      fill="currentColor"
-                      stroke="none"
-                    />
-                    <rect
-                      x="5"
-                      y="16"
-                      width="3"
-                      height="3"
-                      fill="currentColor"
-                      stroke="none"
-                    />
-                    <path
-                      d="M14 14h2v2h-2zm4 0h3v3h-3zm0 4h2v3h-2zm-4 2h3v1h-3z"
-                      fill="currentColor"
-                    />
+              <div class="qthumb" data-qr-id="qris-1">
+                <div class="qthumb-ph">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="14" width="7" height="7"></rect>
+                    <rect x="3" y="14" width="7" height="7"></rect>
+                    <rect x="8" y="8" width="1" height="1"></rect>
                   </svg>
-                  <span class="qthumb-hint">Tap to zoom</span>
+                  <span class="qthumb-hint">QR Code</span>
                 </div>
-                <img id="qthumbImg" src="" alt="QRIS fanzx" />
+                <img alt="QRIS" />
                 <div class="qthumb-ov">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <circle cx="11" cy="11" r="8" />
-                    <path d="m21 21-4.35-4.35" />
-                    <path d="M11 8v6M8 11h6" />
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                    ></path>
                   </svg>
-                  <span>Perbesar</span>
+                  <span>Download</span>
                 </div>
               </div>
-              <div class="qinfo">
-                <div class="qbadge">All Payment</div>
+
+              <div>
+                <div class="qbadge">Stabil</div>
                 <div class="qtitle">QRIS</div>
-                <p class="qdesc">
-                  Scan pakai aplikasi apapun. Satu QR untuk semua e-wallet dan
-                  mobile banking.
-                </p>
-                <div class="qtags">
-                  <span class="qtag">GoPay</span><span class="qtag">Dana</span
-                  ><span class="qtag">OVO</span>
-                  <span class="qtag">ShopeePay</span
-                  ><span class="qtag">LinkAja</span
-                  ><span class="qtag">BCA Mobile</span
-                  ><span class="qtag">+ lainnya</span>
+                <div class="qdesc">
+                  Metode pembayaran paling stabil. Support semua dompet digital dan bank lokal.
                 </div>
-                <p class="qaname">a/n toko fanzz</p>
+                <div class="qtags">
+                  <span class="qtag">Dana</span>
+                  <span class="qtag">GoPay</span>
+                  <span class="qtag">OVO</span>
+                  <span class="qtag">LinkAja</span>
+                </div>
+                <div class="qaname">Admin: Fanzx</div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <!-- CONFIRM -->
-      <div class="sec" id="sec-confirm">
-        <div class="sec-lbl">Cara Konfirmasi</div>
+      <section class="sec sec-confirm">
+        <div class="sec-lbl">Cara Pembayaran</div>
+
         <div class="confirm-box">
           <div class="cfm-step">
-            <span class="cfm-num">01</span>
-            <div class="cfm-text">
-              <strong>Transfer</strong>Selesaikan pembayaran lewat metode
-              pilihan.
+            <div class="cfm-num">01</div>
+            <div>
+              <div class="cfm-text">
+                <strong>Pilih Metode</strong>
+                Gunakan salah satu metode pembayaran di atas yang paling mudah bagi Anda.
+              </div>
             </div>
           </div>
+
           <div class="cfm-step">
-            <span class="cfm-num">02</span>
-            <div class="cfm-text">
-              <strong>Screenshot</strong>Ambil bukti pembayaran dari aplikasi
-              kamu.
+            <div class="cfm-num">02</div>
+            <div>
+              <div class="cfm-text">
+                <strong>Transfer Dana</strong>
+                Masukkan jumlah sesuai paket membership yang Anda inginkan.
+              </div>
             </div>
           </div>
+
           <div class="cfm-step">
-            <span class="cfm-num">03</span>
-            <div class="cfm-text">
-              <strong>Kirim ke WA / TG</strong>Sertakan detail pesanan + bukti
-              transfer.
+            <div class="cfm-num">03</div>
+            <div>
+              <div class="cfm-text">
+                <strong>Konfirmasi</strong>
+                Hubungi admin untuk konfirmasi pembayaran Anda.
+              </div>
             </div>
           </div>
         </div>
-      </div><!-- /sec-confirm -->
+      </section>
 
-      </div><!-- /right-col -->
-      </div><!-- /main-grid -->
-
-      <!-- FOOTER -->
-      <div class="sec sec-footer" id="sec-footer">
-        <footer class="ftr">
-          <div class="ftr-brand"><em>fanzx</em> · payment</div>
-          <div class="ftr-note">© 2026 fanzx. All rights reserved.</div>
-        </footer>
-      </div>
+      <footer class="sec sec-footer">
+        <div class="ftr">
+          <div class="ftr-brand">
+            <em>Fantzy</em> Payment
+          </div>
+          <div class="ftr-note">Tahun 2024 | Dikelola oleh Tim Fantzy</div>
+        </div>
+      </footer>
     </div>
 
-    <!-- TOAST -->
-    <div class="toast" id="toast">
-      <span class="tdot"></span><span id="toastTxt">Disalin</span>
-    </div>
+    <div class="toast" id="toast"></div>
 
-    <!-- MODAL -->
     <div class="modal-wrap" id="modal">
-      <div class="modal-bg" onclick="closeModal()"></div>
+      <div class="modal-bg"></div>
       <div class="modal">
         <div class="modal-top"></div>
-        <button class="modal-close" onclick="closeModal()">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path d="M18 6 6 18M6 6l12 12" />
+        <button class="modal-close" title="Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
         </button>
-        <div class="modal-img-wrap" id="modalImgWrap">
-          <div class="modal-ph" id="modalPh">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-            >
-              <rect x="3" y="3" width="7" height="7" rx="1" />
-              <rect x="14" y="3" width="7" height="7" rx="1" />
-              <rect x="3" y="14" width="7" height="7" rx="1" />
-              <rect
-                x="5"
-                y="5"
-                width="3"
-                height="3"
-                fill="currentColor"
-                stroke="none"
-              />
-              <rect
-                x="16"
-                y="5"
-                width="3"
-                height="3"
-                fill="currentColor"
-                stroke="none"
-              />
-              <rect
-                x="5"
-                y="16"
-                width="3"
-                height="3"
-                fill="currentColor"
-                stroke="none"
-              />
+        <div class="modal-img-wrap">
+          <div class="modal-ph">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+              <rect x="8" y="8" width="1" height="1"></rect>
             </svg>
-            <p>Isi QRIS_SRC<br />di bagian script</p>
+            <p>Loading Image…</p>
           </div>
-          <img id="modalImg" src="" alt="QRIS fanzx" style="display: none" />
+          <img alt="" />
         </div>
-        <div class="modal-title">QRIS All Payment</div>
-        <p class="modal-sub">
-          Screenshot atau scan langsung. Berlaku untuk semua aplikasi yang
-          mendukung QRIS.
-        </p>
-        <button class="modal-closebtn" onclick="closeModal()">Tutup</button>
+        <div class="modal-title">QRIS</div>
+        <div class="modal-sub">Scan dengan aplikasi e-wallet pilihan Anda untuk melakukan pembayaran.</div>
+        <button class="modal-closebtn">Tutup</button>
       </div>
     </div>
 
     <script>
-      /* ── CONFIG ── */
-      const QRIS_SRC = './media/qris.jpeg';
-      const LOGOS =
-      { 
-        dana: './media/dana.jpg',
-        gopay: './media/gopay.jpg',
-        ovo: './media/ovo.jpg'
-      };
+      const wrapper = document.querySelector('.wrap');
+      const sections = document.querySelectorAll('.sec');
+      const copyBtns = document.querySelectorAll('.cbtn');
+      const qrThumb = document.querySelector('[data-qr-id]');
+      const modal = document.getElementById('modal');
+      const modalClose = document.querySelector('.modal-close');
+      const modalClosebtn = document.querySelector('.modal-closebtn');
+      const toast = document.getElementById('toast');
 
-      /* ── load logos ── */
-      Object.entries(LOGOS).forEach(([id, src]) => {
-        if (!src) return;
-        const img = document.getElementById('logo-' + id);
-        const ph = document.getElementById('logoph-' + id);
-        img.src = src;
-        img.onload = () => {
-          img.classList.add('loaded');
-          ph.style.display = 'none';
-        };
-      });
-
-      /* ── load QRIS thumb ── */
-      if (QRIS_SRC) {
-        const img = document.getElementById('qthumbImg');
-        img.src = QRIS_SRC;
-        img.onload = () => {
-          img.classList.add('loaded');
-          document.getElementById('qthumbPh').style.display = 'none';
-        };
-      }
-
-      /* ── Intersection Observer — add .visible to each .sec ── */
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               entry.target.classList.add('visible');
-              observer.unobserve(entry.target); // fire once
             }
           });
         },
-        { threshold: 0.12 }
+        { threshold: 0.2 }
       );
 
-      document.querySelectorAll('.sec').forEach((sec) => observer.observe(sec));
+      sections.forEach((sec) => observer.observe(sec));
 
-      /* ── Ripple effect ── */
-      function createRipple(card, e) {
-        const rippleContainer = card.querySelector('.wcard-ripple');
-        if (!rippleContainer) return;
-
-        // get brand color from CSS var
-        const style = getComputedStyle(card);
-        const ac =
-          style.getPropertyValue('--ac').trim() ||
-          style.getPropertyValue('--gold').trim();
-
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const size = Math.max(rect.width, rect.height) * 2.2;
-
-        const circle = document.createElement('span');
-        circle.style.cssText = `
-        position:absolute;
-        width:${size}px; height:${size}px;
-        left:${x - size / 2}px; top:${y - size / 2}px;
-        border-radius:50%;
-        background:${ac};
-        opacity:.13;
-        transform:scale(0);
-        pointer-events:none;
-        animation:rippleAnim .65s cubic-bezier(.22,1,.36,1) forwards;
-      `;
-
-        // inject keyframes once
-        if (!document.getElementById('ripple-style')) {
-          const s = document.createElement('style');
-          s.id = 'ripple-style';
-          s.textContent =
-            '@keyframes rippleAnim{to{transform:scale(1);opacity:0}}';
-          document.head.appendChild(s);
-        }
-
-        rippleContainer.appendChild(circle);
-        circle.addEventListener('animationend', () => circle.remove());
-      }
-
-      /* ── copy ── */
-      function copyNum(num, prov) {
-        navigator.clipboard
-          .writeText(num)
-          .then(() => showToast(prov + ' — nomor disalin'))
-          .catch(() => showToast('Salin manual ya'));
-      }
-
-      let _tt;
-      function showToast(msg) {
-        const t = document.getElementById('toast');
-        document.getElementById('toastTxt').textContent = msg;
-        t.classList.add('on');
-        clearTimeout(_tt);
-        _tt = setTimeout(() => t.classList.remove('on'), 2400);
-      }
-
-      /* ── card click → ripple + copy ── */
-      document.querySelectorAll('.wcard:not(.unavail)').forEach((card) => {
-        card.addEventListener('click', (e) => {
-          createRipple(card, e);
-          copyNum(card.dataset.num, card.dataset.prov);
-        });
-      });
-
-      /* ── copy btn — stop bubble, still ripple ── */
-      document.querySelectorAll('.cbtn').forEach((btn) => {
+      copyBtns.forEach((btn) => {
         btn.addEventListener('click', (e) => {
-          e.stopPropagation();
+          e.preventDefault();
           const card = btn.closest('.wcard');
-          createRipple(card, e);
-          copyNum(card.dataset.num, card.dataset.prov);
+          const number = card.getAttribute('data-number');
+
+          navigator.clipboard.writeText(number).then(() => {
+            toast.textContent = `Nomor ${number} disalin!`;
+            toast.classList.add('on');
+            setTimeout(() => {
+              toast.classList.remove('on');
+            }, 2000);
+          });
         });
       });
 
-      /* ── modal ── */
-      function openModal() {
-        if (QRIS_SRC) {
-          const mi = document.getElementById('modalImg');
-          mi.src = QRIS_SRC;
-          mi.style.display = 'block';
-          document.getElementById('modalPh').style.display = 'none';
+      if (qrThumb) {
+        qrThumb.addEventListener('click', (e) => {
+          e.preventDefault();
+          modal.classList.add('open');
+        });
+      }
+
+      if (modalClose) {
+        modalClose.addEventListener('click', () => {
+          modal.classList.remove('open');
+        });
+      }
+
+      if (modalClosebtn) {
+        modalClosebtn.addEventListener('click', () => {
+          modal.classList.remove('open');
+        });
+      }
+
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.remove('open');
         }
-        document.getElementById('modal').classList.add('open');
-        document.body.style.overflow = 'hidden';
-      }
-      function closeModal() {
-        document.getElementById('modal').classList.remove('open');
-        document.body.style.overflow = '';
-      }
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeModal();
       });
     </script>
   </body>
