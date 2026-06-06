@@ -18,7 +18,7 @@ This project provides a clean, fast payment interface supporting multiple paymen
 ## Project Structure
 
 ```
-.
+./payment
 ├── index.html                      # Main page
 ├── favicon.ico                     # Favicon (ICO format)
 ├── favicon.svg                     # Favicon (SVG format)
